@@ -1,0 +1,16 @@
+if __name__ == '__main__':
+    N = int(input())
+    result = []
+    for _ in range(N):
+        command = input().split()
+        if  "print" in command:
+            print(result)
+        elif "insert" in command:
+            result.insert(int(command[1]),int(command[2]))
+        elif "remove" in command:
+            result.remove(int(command[1]))
+        elif "append" in command:
+            result.append(int(command[1]))
+        else:
+            list_action = getattr(result, command[0])
+            list_action()
